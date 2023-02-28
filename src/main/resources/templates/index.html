@@ -1,27 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    
 
     <header>
-        <img id="logo" src="apsImagem/logo.png" alt="">
-        <a href="">INÍCIO</a>
-        <a href="">SOBRE NÓS</a>
-        <a href="">CONTATO</a>
-        <a href="formulario">Cadastro</a>
+        <div>
+            <a href="/">
+                <img id="logo" src="apsImagem/logo.png" alt="">
+            </a>
+        </div>
+        <div>
+            <h1>CONSTRUTORA ADA</h1>
+        </div>
+        <div>
+            <a href="formulario"><span class="material-symbols-outlined">person</span></a>
+        </div>
     </header>
 
-    <h1>CONHEÇA OS NOSSOS MELHORES EMPREENDIMENTOS</h1>
+
+    <div id="busca">
+
+        <h2>Encontre seu imóvel</h2>
+
+        <div id="divBusca">
+
+            <div class="wrapper">
+                <div class="price-input">
+                    <div class="field">
+                        <span>Min</span>
+                        <input type="number" class="input-min" value="200000" disabled="true">
+                    </div>
+                    <div class="separator">-</div>
+                    <div class="field">
+                        <span>Max</span>
+                        <input type="number" class="input-max" value="900000" disabled="true">
+                    </div>
+                </div>
+                <div class="slider">
+                    <div class="progress"></div>
+                </div>
+                <div class="range-input">
+                    <input type="range" class="range-min" min="0" max="1000000" value="200000" step="10000">
+                    <input type="range" class="range-max" min="0" max="1000000" value="900000" step="10000">
+                </div>
+            </div>
+
+            <select name="" id="regiao">
+                <optgroup label="Regiao">
+                    <option value="umDormitorios">São Paulo</option>
+                    <option value="doisDormitorios">Rio de Janeiro</option>
+                    <option value="tresDormitorios">Rio Grande do Sul</option>
+                </optgroup>
+            </select>
+
+            <select name="" id="dormitorios">
+                <optgroup label="Dormitórios">
+                    <option value="umDormitorios">1 dormitório</option>
+                    <option value="doisDormitorios">2 dormitório</option>
+                    <option value="tresDormitorios">3 dormitório</option>
+                </optgroup>
+            </select>
+
+            <button id="botaoDeBusca">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+    </div>
 
     <div class="content">
-        
+
         <div id="box-obras" class="obraUm">
             <div class="imagem"><img src="apsImagem/apt1.jpg" alt=""></div>
             <ul>
@@ -62,11 +122,67 @@
     </div>
 
     <footer>
-        <a href="">TRABALHE CONOSCO</a>
-        <a href="">IMPRENSA</a>
-        <a href="">BLOG</a>
-        <a href="">ACESSIBILIDADE</a>
+        <div>
+            <a href="">SOBRE</a>
+            <a href="">CONTATO</a>
+            <a href="">LOCALIZAÇÃO</a>
+        </div>
+        <div>
+            <a href="">IMÓVEIS</a>
+            <a href="">FALE COM O CORRETOR</a>
+            <a href="">SIMULADOR</a>
+        </div>
+        <div>
+            <a href="#" id="socialMedia" class="fa fa-facebook"></a>
+            <a href="#" id="socialMedia" class="fa fa-twitter"></a>
+            <a href="#" id="socialMedia" class="fa fa-linkedin"></a>
+        </div>
     </footer>
 
+
+
+    <script>
+        const rangeInput = document.querySelectorAll(".range-input input"),
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+        priceInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minPrice = parseInt(priceInput[0].value),
+                    maxPrice = parseInt(priceInput[1].value);
+
+                if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                    if (e.target.className === "input-min") {
+                        rangeInput[0].value = minPrice;
+                        range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                    } else {
+                        rangeInput[1].value = maxPrice;
+                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    }
+                }
+            });
+        });
+        rangeInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minVal = parseInt(rangeInput[0].value),
+                    maxVal = parseInt(rangeInput[1].value);
+                if ((maxVal - minVal) < priceGap) {
+                    if (e.target.className === "range-min") {
+                        rangeInput[0].value = maxVal - priceGap
+                    } else {
+                        rangeInput[1].value = minVal + priceGap;
+                    }
+                } else {
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }
+            });
+        });
+    </script>
+
+
 </body>
+
 </html>

@@ -1,21 +1,86 @@
 header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    background: black;
+    justify-items: center;
     align-items: center;
-    padding:30px 0;
-    border: 1px solid red;
+    padding: 18px;
 }
 
 header #logo {
-    margin-left: 50px;
     width: 60px;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: white;
+    text-shadow: gray 0.1em 0.1em 0.2em;
 }
 
 header a {
     font-size: 26px;
-    margin: 0 auto;
-    color: black;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
+}
+
+header a span {
+    padding: 6px;
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+#busca{
+    background-image: url("apsImagem/cidade.jpg");
+    background-size: 100%;
+    background-color: transparent(50%);
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+#busca h2 {
+    font-size: 34px;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    padding: 10px;
+}
+
+#divBusca {
+    display: flex;
+    padding: 40px;
+    align-items: center;
+    background: white;
+    border-radius: 22px;
+}
+
+#busca button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+#busca button span {
+    background-color: none;
+    font-size: 50px;
+    background: white;
+    border-radius: 12px;
+}
+
+
+#busca select {
+    height: 70px;
+    width: 260px;
+    margin: 6px;
+    color: black;
+    font-size: 20px;
+    background: white;
+    border: 1px solid rgb(245, 238, 238);
+    border-radius: 12px;
 }
 
 .content {
@@ -23,8 +88,9 @@ header a {
     flex-direction: star;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     border: 1px solid green;
-    height: 85vh;
+    height: 540px;
 }
 
 #box-obras {
@@ -77,11 +143,165 @@ input {
 
 footer {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 14px;
+    background: black;
+}
+
+footer div {
+    display: flex;
     flex-direction: column;
-    margin-left: 100px;
+    justify-content: center;
 }
 
 footer a {
     margin: 8px 0px;
     text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    margin: 8px 0px;
+    text-decoration: none;
+    color: rgb(218, 209, 209);
+}
+
+.fa {
+    font-size: 280px;
+    text-align: center;
+    text-decoration: none;
+    padding: 6px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    border-radius: 2px;
+  }
+
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+    border-radius: 2px;
+  }
+
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+    border-radius: 2px;
+  }
+
+
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    color: #fff;
+    background: #17A2B8;
+}
+
+.wrapper {
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2px 10px 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.price-input {
+    width: 100%;
+    display: flex;
+    margin: 10px 0 15px;
+}
+
+.price-input .field {
+    display: flex;
+    width: 80%;
+    height: 25px;
+    align-items: center;
+}
+
+.field input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 16px;
+    margin-left: 12px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #999;
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.price-input .separator {
+    width: 80px;
+    display: flex;
+    font-size: 19px;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider {
+    height: 5px;
+    position: relative;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.slider .progress {
+    height: 100%;
+    left: 25%;
+    right: 25%;
+    position: absolute;
+    border-radius: 5px;
+    background: #17A2B8;
+}
+
+.range-input {
+    position: relative;
+}
+
+.range-input input {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #17A2B8;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: #17A2B8;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
