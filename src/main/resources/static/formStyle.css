@@ -1,0 +1,23 @@
+#formEnvio {
+    display: flex;
+    flex-direction: column;
+}
+
+#formEnvio form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+#formEnvio form input{
+    width: 500px;
+    height: 22px;
+    border: 1px solid gainsboro;
+}
+
+#formEnvio button {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 26px;
+}
