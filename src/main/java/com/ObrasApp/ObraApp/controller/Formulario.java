@@ -8,7 +8,7 @@ public class Formulario {
     
     @RequestMapping("/formulario")
     public String index(){
-        return "form";
+        return "formularioDeCadastro";
     }
 
 }

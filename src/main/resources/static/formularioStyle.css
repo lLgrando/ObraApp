@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    background: black;
+    justify-content: center;
+    padding: 2px;
+}
+
+header #logo {
+    width: 60px;
+    border-radius: 8px;
+}
+
+/* DIV DO FORMULÁRIO */
+
+#formEnvio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(236, 236, 250);
+    padding: 18px;
+    border-bottom: 2px solid gray;
+}
+
+#formEnvio h1 {
+    padding: 2px;
+    margin-bottom: 8px;
+    color: rgb(107, 99, 99);
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+/* FORMULÁRIO */
+
+#formEnvio form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding: 18px;
+}
+
+#organiza {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 500px;
+}
+
+form .divArea, .divPreco {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    font-size: 16px;
+    color: rgb(80, 68, 68);
+}
+
+form .inputNome, .inputLocalizacao {
+    width: 500px;
+    height: 40px;
+    margin-bottom: 16px;
+    outline: none;
+    border: 1px solid rgb(189, 185, 185);
+    border-radius: 8px;
+    font-size: 16px;
+    color: gray;
+    background: white;
+    padding-left: 8px;
+}
+
+form .inputPreco, .inputArea {
+    width: 220px;
+    height: 40px;
+    outline: none;
+    border: 1px solid rgb(189, 185, 185);
+    border-radius: 8px;
+    font-size: 16px;
+    color: gray;
+    background: white;
+    padding-left: 8px;
+}
+
+select:hover, input:hover {
+    border: 1px solid rgb(105, 100, 100);
+}
+
+form input::placeholder, select::placeholder {
+    color: rgb(206, 198, 198);
+    font-size: 14px;
+}
+
+
+/* BOTÃO DE ENVIAR */
+
+.submitForm {
+    margin: 12px;
+    height: 40px;
+    width: 200px;
+    font-size: 16px;
+    background: rgb(201, 201, 223);
+    margin-top: 26px;
+    border: none;
+    border-radius: 12px;
+}
+
+.submitForm:hover {
+    transition: 0.5;
+    background: rgb(173, 173, 189);
+    color: white;
+}
+
+
+/* LISTA DOS IMÓVEIS CADASTRADOS */
+
+#divListaDeImoveis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+#divListaDeImoveis h1 {
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+    color: rgb(107, 99, 99);
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+#tableListaDeImoveis{
+    width: 90%;
+}
+
+table .top {
+    text-align: left;
+    background: rgb(221, 216, 216);
+}
+
+#tableListaDeImoveis tr {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+    justify-content: left;
+    align-items: center;
+    border-bottom: 1px solid rgb(207, 203, 203);
+    padding: 8px 0px;
+}
+
+#tableListaDeImoveis a {
+    text-decoration: none;
+    color: red;
+    font-weight: 900;
+    border: 1px solid rgb(189, 181, 181);
+    border-radius: 6px;
+    padding: 5px;
+}
+
+#tableListaDeImoveis a:hover {
+    background: rgb(253, 226, 226);
+}
+

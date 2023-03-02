@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formularioStyle.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <a href="/">
+                <img id="logo" src="apsImagem/logo.png" alt="">
+            </a>
+        </div>
+    </header>
+
+    <div id="formEnvio">
+        <h1>Cadastro de Imóveis</h1>
+
+        <form action="" method="post">
+            <div>
+                <div class="divNome">
+                    <label for="name">Imóvel</label>
+                    <input type="text" value="" name="nome" class="inputNome" placeholder="Nome do imóvel...">
+                </div>
+                <div class="divLocalicazao">
+                    <label for="local">Localização</label>
+                    <select name="" id="regiao" class="inputLocalizacao">
+                        <option value="" disabled selected hidden></option>
+                        <option value="umDormitorios">São Paulo</option>
+                        <option value="doisDormitorios">Rio de Janeiro</option>
+                        <option value="tresDormitorios">Rio Grande do Sul</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div id="organiza">
+                <div class="divArea">
+                    <label for="area">Área (m²)</label>
+                    <input type="text" value="" name="area" class="inputArea" placeholder="80">
+                </div>
+                <div class="divPreco">
+                    <label for="preco">Preço</label>
+                    <input type="text" value="" name="preco" class="inputPreco" placeholder="300.000,00">
+                </div>
+            </div>
+
+            <input type="submit" value="Enviar" class="submitForm">
+        </form>
+    </div>
+
+    <div id="divListaDeImoveis">
+
+        <h1>Lista de imóveis</h1>
+
+        <table id="tableListaDeImoveis">
+            <tr class="top">
+                <th>IMÓVEL</th>
+                <th>LOCALIZAÇÃO</th>
+                <th>ÁREA (m²)</th>
+                <th>PREÇO (R$)</th>
+                <th>AÇÕES</th>
+            </tr>
+            <tr>
+                <td>Imóvel 01</td>
+                <td>São Paulo</td>
+                <td>80,00</td>
+                <td>500.000,00</td>
+                <td><a href="">X</a></td>
+            </tr>
+            <tr>
+                <td>Imóvel 02</td>
+                <td>Rio de Janeiro</td>
+                <td>100,00</td>
+                <td>700.000,00</td>
+                <td><a href="">X</a></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
