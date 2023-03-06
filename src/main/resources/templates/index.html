@@ -80,46 +80,23 @@
         </div>
     </div>
 
-    <div class="content">
 
-        <div id="box-obras" class="obraUm">
-            <div class="imagem"><img src="apsImagem/apt1.jpg" alt=""></div>
-            <ul>
-                <li>Nome da construção</li>
-                <li>60 m²</li>
-                <li>Bairro Algo</li>
-                <li>R$ 400.000,00</li>
-            </ul>
-        </div>
-        <div id="box-obras" class="obraUm">
-            <div class="imagem"><img src="apsImagem/apt1.jpg" alt=""></div>
-            <ul>
-                <li>Nome da construção</li>
-                <li>60 m²</li>
-                <li>Bairro Algo</li>
-                <li>R$ 400.000,00</li>
-            </ul>
-        </div>
-        <div id="box-obras" class="obraUm">
-            <div class="imagem"><img src="apsImagem/apt1.jpg" alt=""></div>
-            <ul>
-                <li>Nome da construção</li>
-                <li>60 m²</li>
-                <li>Bairro Algo</li>
-                <li>R$ 400.000,00</li>
-            </ul>
-        </div>
-        <div id="box-obras" class="obraUm">
-            <div class="imagem"><img src="apsImagem/apt1.jpg" alt=""></div>
-            <ul>
-                <li>Nome da construção</li>
-                <li>60 m²</li>
-                <li>Bairro Algo</li>
-                <li>R$ 400.000,00</li>
-            </ul>
-        </div>
 
+    <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}" class=".content">
+        
+        <ul th:each="imovel : ${imoveis}">
+            <li >
+                <img th:attr="src=@{/apsImagem/apt1.jpg},title=#{logo},alt=#{logo}">
+                <span th:text="${imovel.nomeImovel}"></span>
+                <span th:text="${imovel.cidade}"></span>
+                <span th:text="${imovel.area}"></span>
+                <span th:text="${imovel.preco}"></span>
+            </li>
+        </ul>
+    
     </div>
+
+
 
     <footer>
         <div>

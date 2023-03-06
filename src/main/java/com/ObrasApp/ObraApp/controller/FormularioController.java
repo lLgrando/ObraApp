@@ -28,6 +28,11 @@ public class FormularioController {
         return "formularioDeCadastro";
     }
 
+    @RequestMapping("/editar")
+    public String edit(){
+        return "editar";
+    }
+
 
     @PutMapping("formulario/editar/{id}")
     public String index(@PathVariable("id") String id, Model model){
