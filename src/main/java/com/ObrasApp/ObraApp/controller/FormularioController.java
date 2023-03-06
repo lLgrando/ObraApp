@@ -11,5 +11,10 @@ public class FormularioController {
         return "formularioDeCadastro";
     }
 
+    @RequestMapping("/editar")
+    public String edit(){
+        return "editar";
+    }
+
     
 }
