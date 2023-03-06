@@ -4,11 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Formulario {
+public class HomeController {
     
-    @RequestMapping("/formulario")
-    public String index(){
-        return "formularioDeCadastro";
+    @RequestMapping("/")
+    public String home(){
+        return "index";
     }
-
 }
