@@ -21,7 +21,6 @@ public class FormularioController {
     @Autowired
     private final ImovelService imovelService;
 
-
     @GetMapping("/formulario")
     public String formulario(Model model){
         model.addAttribute("imoveis", imovelService.ObterTodos());
@@ -37,7 +36,6 @@ public class FormularioController {
     public String edit(){
         return "editar";
     }
-
 
     @PutMapping("formulario/editar/{id}")
     public String index(@PathVariable("id") String id, Model model){
