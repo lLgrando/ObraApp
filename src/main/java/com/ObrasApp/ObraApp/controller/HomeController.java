@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.service.ImovelService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,4 +22,11 @@ public class HomeController {
         model.addAttribute("imoveis", imovelService.obterTodos());
         return "index";
     }
+
+    @RequestMapping("/pesquisar")
+    public String adicionarItem(Pesquisa pesquisa, Model model){    
+        model.addAttribute("imoveis", imovelService.procurar(pesquisa));
+        return "index";
+    }
+
 }

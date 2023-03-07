@@ -206,18 +206,29 @@ table .top {
 }
 
 td, th {
+    display: flex;
+    align-items: center;
     padding: 10px 0px;
     border-bottom: 2px solid gainsboro;
 }
 
-#btnDeletar {
+#botoes a {
     text-decoration: none;
-    color: red;
-    font-weight: 900;
-    border: 1px solid rgb(189, 181, 181);
-    border-radius: 6px;
-    padding: 5px;
+    color: black;
+    margin-right: 20px;
 }
+
+#botoes a span {
+    background-color: rgb(224, 223, 223);
+    padding: 2px;
+    border-radius: 6px;
+}
+
+#botoes a:hover {
+    text-decoration: none;
+    color: gray;
+}
+
 
 #btnDeletar:hover {
     background: rgb(253, 226, 226);

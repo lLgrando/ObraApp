@@ -17,5 +17,4 @@ public class Imovel {
     private Double preco;
     private Integer dormitorio;
 
-
 }

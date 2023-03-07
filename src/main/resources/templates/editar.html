@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="formularioStyle.css">
+    <link rel="stylesheet" type="text/css" href="/formularioStyle.css" />
 </head>
 
 <body>
@@ -22,27 +22,20 @@
     <div id="formEnvio">
         <h1>Editar Imóvel Cadastrado</h1>
 
-        <form action="formulario/adicionar" method="POST">
+        <form action="/formulario/editar/modificar" method="POST">
+            <input name="id" th:value="${imovel.id}" hidden>
             <div>
-                <div class="divId">
-                    <label for="imovelId">ID</label>
-                    <input type="text" value="" name="imovelId" class="inputImovelId" readonly>
-                </div>
                 <div class="divNome">
                     <label for="nomeImovel">Imóvel</label>
-                    <input type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel...">
-                </div>
-                <div class="divNome">
-                    <label for="nomeImovel">Imagem</label>
-                    <input type="file" value="" name="imagem" class="inputNome">
+                    <input th:value="${imovel.nomeImovel}" type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel...">
                 </div>
                 <div class="divLocalicazao">
                     <label for="local">Localização</label>
-                    <select name="cidade" id="regiao" class="inputLocalizacao">
+                    <select th:field="${imovel.cidade}" name="cidade" id="regiao" class="inputLocalizacao">
                         <option value="" disabled selected hidden></option>
                         <option name="cidade" value="SP">São Paulo</option>
                         <option name="cidade" value="RJ">Rio de Janeiro</option>
-                        <option name="cidade" value="RS">Rio Grande do Sul</option>
+                        <option name="cidade" value="POA">Porto Alegre</option>
                     </select>
                 </div>
             </div>
@@ -50,22 +43,22 @@
             <div id="organiza">
                 <div class="divArea">
                     <label for="area">Área (m²)</label>
-                    <input type="number" value="" name="area" class="inputArea" placeholder="80" min="20" max="200">
+                    <input th:value="${imovel.area}" type="number" value="" name="area" class="inputArea" placeholder="80" min="20" max="200">
                 </div>
                 <div class="divPreco">
                     <label for="preco">Preço</label>
-                    <input type="number" value="" name="preco" class="inputPreco" placeholder="300.000,00" min="0"
+                    <input th:value="${imovel.preco}" type="number" value="" name="preco" class="inputPreco" placeholder="300.000,00" min="0"
                         max="1000000">
                 </div>
                 <div class="divDormitorio">
                     <label for="dormitorio">Dormitórios</label>
-                    <input type="number" value="" id="cadastrar" name="dormitorio" class="inputDormitorio"
+                    <input th:value="${imovel.dormitorio}" type="number" value="" id="cadastrar" name="dormitorio" class="inputDormitorio"
                         placeholder="2" min="1" max="3" onclick="fun()">
                 </div>
             </div>
             <div id="divBtn">
                 <input type="submit" value="Enviar" class="submitForm" id="submit">
-                <a href="formulario" class="voltarBtn" type="button">Voltar</a>
+                <a href="/formulario" class="voltarBtn" type="button">Voltar</a>
             </div>
 
 

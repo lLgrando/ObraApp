@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Imóveis</title>
     <link rel="stylesheet" href="formularioStyle.css">
-
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
@@ -31,17 +32,13 @@
                     <label for="nomeImovel">Imóvel</label>
                     <input type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel...">
                 </div>
-                <div class="divNome">
-                    <label for="nomeImovel">Imagem</label>
-                    <input type="file" value="" name="imagem" class="inputNome">
-                </div>
                 <div class="divLocalicazao">
                     <label for="local">Localização</label>
                     <select name="cidade" id="regiao" class="inputLocalizacao">
                         <option value="" disabled selected hidden></option>
                         <option name="cidade" value="SP">São Paulo</option>
                         <option name="cidade" value="RJ">Rio de Janeiro</option>
-                        <option name="cidade" value="RS">Rio Grande do Sul</option>
+                        <option name="cidade" value="POA">Porto Alegre</option>
                     </select>
                 </div>
             </div>
@@ -71,7 +68,6 @@
 
 
     <h1>Lista de imóveis</h1>
-    <a href="/editar">Edit</a>
 
     <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}">
 
@@ -93,8 +89,14 @@
                     <td th:text="${imovel.area}"></td>
                     <td th:text="${imovel.preco}"></td>
                     <td>
-                        <a th:href="@{/formulario/delete/{id}(id=${imovel.id})}" id="btnDeletar">X</a>
-                        <a th:href="@{/formulario/editar/{id}(id=${imovel.id})}">Edit</a>
+                        <div id="botoes">
+                            <a th:href="@{/formulario/delete/{id}(id=${imovel.id})}">
+                                <span class="material-symbols-outlined">close</span>
+                            </a>
+                            <a th:href="@{/formulario/editar/{id}(id=${imovel.id})}">
+                                <span class="material-symbols-outlined">edit</span>
+                            </a>
+                        </div>
                     </td>
                 </tr>
             </tbody>

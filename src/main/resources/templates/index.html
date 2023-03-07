@@ -37,63 +37,68 @@
 
         <div id="divBusca">
 
-            <div class="wrapper">
-                <div class="price-input">
-                    <div class="field">
-                        <span>Min</span>
-                        <input type="number" class="input-min" value="200000" disabled="true">
+            <form action="/pesquisar" method="POST">
+
+                <div class="wrapper">
+                    <div class="price-input">
+                        <div class="field">
+                            <span>Min</span>
+                            <input type="number" name="precoMin" class="input-min" value="200000" disabled="true">
+                        </div>
+                        <div class="separator">-</div>
+                        <div class="field">
+                            <span>Max</span>
+                            <input type="number" name="precoMax" class="input-max" value="900000" disabled="true">
+                        </div>
                     </div>
-                    <div class="separator">-</div>
-                    <div class="field">
-                        <span>Max</span>
-                        <input type="number" class="input-max" value="900000" disabled="true">
+                    <div class="slider">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="range-input">
+                        <input name="precoMin" type="range" class="range-min" min="0" max="1000000" value="200000" step="10000">
+                        <input name="precoMax" type="range" class="range-max" min="0" max="1000000" value="900000" step="10000">
                     </div>
                 </div>
-                <div class="slider">
-                    <div class="progress"></div>
-                </div>
-                <div class="range-input">
-                    <input type="range" class="range-min" min="0" max="1000000" value="200000" step="10000">
-                    <input type="range" class="range-max" min="0" max="1000000" value="900000" step="10000">
-                </div>
-            </div>
 
-            <select name="" id="regiao">
-                <optgroup label="Regiao">
-                    <option value="umDormitorios">São Paulo</option>
-                    <option value="doisDormitorios">Rio de Janeiro</option>
-                    <option value="tresDormitorios">Rio Grande do Sul</option>
-                </optgroup>
-            </select>
+                <select id="regiao" name="cidade">
+                    <optgroup label="Regiao" >
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="POA">Porto Alegre</option>
+                    </optgroup>
+                </select>
 
-            <select name="" id="dormitorios">
-                <optgroup label="Dormitórios">
-                    <option value="umDormitorios">1 dormitório</option>
-                    <option value="doisDormitorios">2 dormitório</option>
-                    <option value="tresDormitorios">3 dormitório</option>
-                </optgroup>
-            </select>
+                <select id="dormitorios" name="dormitorio">
+                    <optgroup label="Dormitórios">
+                        <option value="1">1 dormitório</option>
+                        <option value="2">2 dormitório</option>
+                        <option value="3">3 dormitório</option>
+                    </optgroup>
+                </select>
 
-            <button id="botaoDeBusca">
-                <span class="material-symbols-outlined">search</span>
-            </button>
+                <button id="botaoDeBusca">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+
+            </form>
         </div>
     </div>
 
 
 
     <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}" class=".content">
-        
+
         <ul th:each="imovel : ${imoveis}">
-            <li >
+            <li>
                 <img th:attr="src=@{/apsImagem/apt1.jpg},title=#{logo},alt=#{logo}">
                 <span th:text="${imovel.nomeImovel}"></span>
                 <span th:text="${imovel.cidade}"></span>
-                <span th:text="${imovel.area}"></span>
-                <span th:text="${imovel.preco}"></span>
+                <span th:text="${#numbers.formatDecimal(imovel.area, 0, 'COMMA', 2, 'COMMA')}+' m²'"></span>
+                <span th:text="${imovel.dormitorio}+' dormitórios'"></span>
+                <span th:text="'R$ '+${#numbers.formatDecimal(imovel.preco, 0, 'COMMA', 2, 'POINT')}"></span>
             </li>
         </ul>
-    
+
     </div>
 
 
