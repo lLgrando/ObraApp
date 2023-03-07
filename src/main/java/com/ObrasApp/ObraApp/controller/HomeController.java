@@ -18,7 +18,7 @@ public class HomeController {
     
     @RequestMapping("/")
     public String index(Model model){
-        model.addAttribute("imoveis", imovelService.ObterTodos());
+        model.addAttribute("imoveis", imovelService.obterTodos());
         return "index";
     }
 }

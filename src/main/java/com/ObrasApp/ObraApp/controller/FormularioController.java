@@ -24,7 +24,7 @@ public class FormularioController {
 
     @GetMapping("/formulario")
     public String formulario(Model model){
-        model.addAttribute("imoveis", imovelService.ObterTodos());
+        model.addAttribute("imoveis", imovelService.obterTodos());
         return "formularioDeCadastro";
     }
 
@@ -42,7 +42,7 @@ public class FormularioController {
 
     @PostMapping("/formulario/adicionar")
     public String adicionarItem(Imovel imovel){
-        imovelService.Criar(imovel);
+        imovelService.criar(imovel);
         return "redirect:/formulario";
     }
 
