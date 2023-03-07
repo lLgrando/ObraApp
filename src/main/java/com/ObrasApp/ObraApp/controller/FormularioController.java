@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ObrasApp.ObraApp.model.Imovel;
 import com.ObrasApp.ObraApp.service.ImovelService;
@@ -25,6 +26,11 @@ public class FormularioController {
     public String formulario(Model model){
         model.addAttribute("imoveis", imovelService.obterTodos());
         return "formularioDeCadastro";
+    }
+
+    @RequestMapping("/editar")
+    public String edit(){
+        return "editar";
     }
 
     @PutMapping("formulario/editar/{id}")

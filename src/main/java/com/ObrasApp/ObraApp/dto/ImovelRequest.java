@@ -10,4 +10,6 @@ public class ImovelRequest {
     private Float area;
     private Double preco;
     private Integer dormitorio;
+    private Double valorMin;
+    private Double valorMax;
 }
