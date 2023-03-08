@@ -1,7 +1,6 @@
 package com.ObrasApp.ObraApp.service;
 
 import com.ObrasApp.ObraApp.model.Imovel;
-//import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.repository.ImovelRepository;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +42,13 @@ public class ImovelService {
             if(Objects.equals(imovel.getDormitorio(), pesquisa.getDormitorio())
             && Objects.equals(imovel.getCidade(), pesquisa.getCidade())
             && (imovel.getPreco() >= pesquisa.getPrecoMin() && imovel.getPreco() <= pesquisa.getPrecoMax())){
+                listaRetorna.add(imovel);
+            }else if (Objects.equals(imovel.getDormitorio(), pesquisa.getDormitorio())
+                    && Objects.equals(imovel.getCidade(), pesquisa.getCidade())){
+                listaRetorna.add(imovel);
+            }else if (Objects.equals(imovel.getDormitorio(), pesquisa.getDormitorio())) {
+                listaRetorna.add(imovel);
+            }else if (Objects.equals(imovel.getCidade(), pesquisa.getCidade())) {
                 listaRetorna.add(imovel);
             }
         }
