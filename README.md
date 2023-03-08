@@ -8,8 +8,11 @@ O tema do projeto é um CRUD de imóveis para o site de uma construtora fictíci
 # Funcionalidades
 
 :heavy_check_mark: Adicionar imóveis que estão a venda;
+ <br>
 :heavy_check_mark: Fazer uma busca do imóvel desejado por range de preço, cidade e quantidade de dormitórios.
+ <br>
 :heavy_check_mark: Editar as propriedades dos imóveis;
+ <br>
 :heavy_check_mark: Excluir os imóveis cadastrados.
 
 # Tecnologias
