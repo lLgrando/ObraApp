@@ -16,9 +16,9 @@ O tema do projeto é um CRUD de imóveis para o site de uma construtora fictíci
 :heavy_check_mark: Excluir os imóveis cadastrados.
 
 # Tecnologias
-Java
-Spring
-Mavem 
-Banco de dados H2
-Thymeleaf
+Java  <br>
+Spring  <br>
+Mavem  <br>
+Banco de dados H2  <br>
+Thymeleaf  <br>
 HTML, CSS e JS
