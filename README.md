@@ -18,7 +18,7 @@ Esse projeto faz parte do 4° módulo do curso de desenvolvimento backend em jav
 # Tecnologias
 Java  <br>
 Spring  <br>
-Mavem  <br>
+Maven  <br>
 Banco de dados H2  <br>
 Thymeleaf  <br>
 HTML, CSS e JS
