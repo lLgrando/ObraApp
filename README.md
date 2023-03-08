@@ -5,6 +5,13 @@ Esse projeto faz parte do 4° módulo do curso de desenvolvimento backend em jav
 
 ![Imagem da tela inicial do projeto](https://user-images.githubusercontent.com/84160206/223740527-fba1925e-4bef-4974-ba5d-0a6e8906299b.png)
 
+
+#Como utilizar
+
+Na tela de entrada da aplicação, há um botão na parte superior direita, conforme imagem abaixo, que direcionará o usuário para uma tela de gestão. Nesta tela é possível visualizar, adicionar e remover os imóveis cadastrados. Além disso, cada imóvel conterá um botão que redirecionará o usuário para uma tela de edição.
+
+![Botão para área de gestão](https://user-images.githubusercontent.com/84160206/223857784-ca9e0133-b834-4e1f-b34e-59754f8b470a.PNG)
+
 # Funcionalidades
 
 :heavy_check_mark: Adicionar imóveis que estão a venda;
