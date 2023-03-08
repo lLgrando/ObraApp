@@ -92,15 +92,16 @@ header a span {
     border-radius: 12px;
 }
 
-
 /* APRESENTAÇÃO */
 
 #divListaDeImoveis{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 100%;
+    padding: 20px 0px;
     background:rgb(230, 230, 230);
 }
 
@@ -109,7 +110,7 @@ header a span {
     width: 220px;
     background:white;
     border-radius: 18px;
-    margin: 0px 40px;
+    margin: 16px 40px;
 }
 
 #divListaDeImoveis ul li img {
@@ -167,17 +168,17 @@ footer a:hover {
     border-radius: 2px;
   }
 
-  .fa-twitter {
+.fa-twitter {
     background: #55ACEE;
     color: white;
     border-radius: 2px;
-  }
+}
 
-  .fa-linkedin {
+.fa-linkedin {
     background: #007bb5;
     color: white;
     border-radius: 2px;
-  }
+}
 
 
 /* Import Google Font - Poppins */

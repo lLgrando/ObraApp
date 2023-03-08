@@ -96,7 +96,6 @@ form .inputNome, .inputLocalizacao, .inputImovelId {
     cursor: none;
 }
 
-
 form .inputPreco, .inputArea, .inputDormitorio {
     width: 100%;
     height: 40px;
@@ -123,7 +122,6 @@ form input::placeholder, select::placeholder {
     display: flex;
     flex-direction: row;
 }
-
 
 /* BOTÃO DE ENVIAR */
 
@@ -172,7 +170,6 @@ form input::placeholder, select::placeholder {
 
 /* LISTA DOS IMÓVEIS CADASTRADOS */
 
-
 #divListaDeImoveis {
     display: flex;
     flex-direction: column;
@@ -219,11 +216,9 @@ td, th {
     color: gray;
 }
 
-
 #btnDeletar:hover {
     background: rgb(253, 226, 226);
 }
-
 
 .voltarBtn {
     text-decoration: none;

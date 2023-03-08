@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <header>
         <div>
             <a href="/">
@@ -37,6 +36,8 @@
                         <option name="cidade" value="SP">São Paulo</option>
                         <option name="cidade" value="RJ">Rio de Janeiro</option>
                         <option name="cidade" value="POA">Porto Alegre</option>
+                        <option name="cidade" value="REC">Recife</option>
+                        <option name="cidade" value="BEL">Belém</option>
                     </select>
                 </div>
             </div>
@@ -63,10 +64,8 @@
 
     </div>
 
-
     <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}">
         <h1 id="listaDeImoveis">Lista de imóveis</h1>
-
 
         <table id="tableListaDeImoveis" cellspacing="0">
             <thead>
@@ -79,7 +78,6 @@
                     <th>Ações</th>
                 </tr>
             </thead>
-
             <tbody>
                 <tr th:each="imovel : ${imoveis}">
                     <td th:text="${imovel.nomeImovel}"></td>
@@ -103,11 +101,9 @@
     </div>
 
     <script>
-        
         function redireciona() {
             var valor_busca = document.getElementById("valor_busca").value;
             location.href = "site.com/busca/" + valor_busca;
-
         }
 
         function fun(evt) {
@@ -119,21 +115,17 @@
         }
 
         function validador(evt) {
-
             let nome = document.getElementsByName('nomeImovel').value;
             let cidade = document.getElementsByName('cidade').value;
             let preco = document.getElementsByName('preco').value;
             let area = document.getElementsByName('area').value;
             let dormitorio = document.getElementsByName('dormitorio').value;
-
             if(nome == null && cidade == null || nome == ""){
                 alert('campo vazio');      
                 evt.preventDefault();
             }
         }
-
     </script>
 
 </body>
-
 </html>

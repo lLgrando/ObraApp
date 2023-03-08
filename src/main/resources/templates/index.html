@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <header>
         <div>
             <a href="/">
@@ -28,15 +27,11 @@
         </div>
     </header>
 
-
     <div id="busca">
-
         <h2>Encontre seu imóvel</h2>
-
         <div id="divBusca">
 
             <form action="/pesquisar" method="POST" id="formularioDeBusca">
-
                 <div class="wrapper">
                     <div class="price-input">
                         <div class="field">
@@ -64,12 +59,14 @@
                         <option value="SP">São Paulo</option>
                         <option value="RJ">Rio de Janeiro</option>
                         <option value="POA">Porto Alegre</option>
+                        <option value="REC">Recife</option>
+                        <option value="BEL">Belém</option>
                     </optgroup>
                 </select>
 
                 <select id="dormitorios" name="dormitorio">
                     <optgroup label="Dormitórios">
-                        <option value="" data-default selected>Mostrar tudo</option>
+                        <option value="0" data-default selected>Mostrar tudo</option>
                         <option value="1">1 dormitório</option>
                         <option value="2">2 dormitório</option>
                         <option value="3">3 dormitório</option>
@@ -79,15 +76,11 @@
                 <button id="botaoDeBusca">
                     <span class="material-symbols-outlined">search</span>
                 </button>
-
             </form>
         </div>
     </div>
 
-
-
     <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}" class=".content">
-
         <ul th:each="imovel : ${imoveis}">
             <li>
                 <img th:attr="src=@{/apsImagem/apt1.jpg},title=#{logo},alt=#{logo}">
@@ -98,10 +91,7 @@
                 <span th:text="'R$ '+${#numbers.formatDecimal(imovel.preco, 0, 'COMMA', 2, 'POINT')}"></span>
             </li>
         </ul>
-
     </div>
-
-
 
     <footer>
         <div>
@@ -120,8 +110,6 @@
             <a href="#" id="socialMedia" class="fa fa-linkedin"></a>
         </div>
     </footer>
-
-
 
     <script>
         const rangeInput = document.querySelectorAll(".range-input input"),
@@ -164,7 +152,5 @@
         });
     </script>
 
-
 </body>
-
 </html>
