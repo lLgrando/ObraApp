@@ -24,17 +24,15 @@
     <div id="formEnvio">
         <h1>Cadastro de Imóveis</h1>
 
-        <button id="btnEsconder" onclick="esconder()">Adicionar Imóvel</button>
-
         <form action="formulario/adicionar" method="POST" id="formularioAdd">
             <div>
                 <div class="divNome">
                     <label for="nomeImovel">Imóvel</label>
-                    <input type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel...">
+                    <input type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel..." required>
                 </div>
                 <div class="divLocalicazao">
                     <label for="local">Localização</label>
-                    <select name="cidade" id="regiao" class="inputLocalizacao">
+                    <select name="cidade" id="regiao" class="inputLocalizacao" required>
                         <option value="" disabled selected hidden></option>
                         <option name="cidade" value="SP">São Paulo</option>
                         <option name="cidade" value="RJ">Rio de Janeiro</option>
@@ -51,33 +49,33 @@
                 <div class="divPreco">
                     <label for="preco">Preço</label>
                     <input type="number" value="" name="preco" class="inputPreco" placeholder="300.000,00" min="0"
-                        max="1000000">
+                        max="1000000" required>
                 </div>
                 <div class="divDormitorio">
                     <label for="dormitorio">Dormitórios</label>
                     <input type="number" value="" id="cadastrar" name="dormitorio" class="inputDormitorio"
-                        placeholder="2" min="1" max="3" onclick="fun()">
+                        placeholder="2" min="1" max="3" onclick="fun()" required>
                 </div>
             </div>
 
-            <input type="submit" value="Enviar" class="submitForm" id="submit">
+            <input type="submit" value="Enviar" class="submitForm" id="submit" onclick="validador(evt)">
         </form>
 
     </div>
 
 
-
-    <h1>Lista de imóveis</h1>
-
     <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}">
+        <h1 id="listaDeImoveis">Lista de imóveis</h1>
+
 
         <table id="tableListaDeImoveis" cellspacing="0">
             <thead>
                 <tr class="top">
-                    <th>Nome</th>
+                    <th>Imóvel</th>
+                    <th>Dormitórios</th>
                     <th>Localização</th>
-                    <th>Área</th>
-                    <th>Preço</th>
+                    <th>Área (m²)</th>
+                    <th>Preço (R$)</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -85,9 +83,10 @@
             <tbody>
                 <tr th:each="imovel : ${imoveis}">
                     <td th:text="${imovel.nomeImovel}"></td>
+                    <td th:text="${imovel.dormitorio}"></td>
                     <td th:text="${imovel.cidade}"></td>
-                    <td th:text="${imovel.area}"></td>
-                    <td th:text="${imovel.preco}"></td>
+                    <td th:text="${#numbers.formatDecimal(imovel.area, 0, 'COMMA', 2, 'COMMA')}"></td>
+                    <td th:text="${#numbers.formatDecimal(imovel.preco, 0, 'COMMA', 2, 'POINT')}"></td>
                     <td>
                         <div id="botoes">
                             <a th:href="@{/formulario/delete/{id}(id=${imovel.id})}">
@@ -104,6 +103,7 @@
     </div>
 
     <script>
+        
         function redireciona() {
             var valor_busca = document.getElementById("valor_busca").value;
             location.href = "site.com/busca/" + valor_busca;
@@ -118,12 +118,18 @@
             document.getElementsByName('dormitorio').value = '';
         }
 
-        function esconder() {
-            var display = document.getElementById('formularioAdd').style.display;
-            if (display == "none")
-                document.getElementById('formularioAdd').style.display = 'flex';
-            else
-                document.getElementById('formularioAdd').style.display = 'none';
+        function validador(evt) {
+
+            let nome = document.getElementsByName('nomeImovel').value;
+            let cidade = document.getElementsByName('cidade').value;
+            let preco = document.getElementsByName('preco').value;
+            let area = document.getElementsByName('area').value;
+            let dormitorio = document.getElementsByName('dormitorio').value;
+
+            if(nome == null && cidade == null || nome == ""){
+                alert('campo vazio');      
+                evt.preventDefault();
+            }
         }
 
     </script>

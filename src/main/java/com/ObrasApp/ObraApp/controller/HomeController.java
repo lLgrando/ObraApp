@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.model.Imovel;
 import com.ObrasApp.ObraApp.service.ImovelService;
 
@@ -21,6 +22,12 @@ public class HomeController {
     @RequestMapping("/")
     public String index(Model model){
         model.addAttribute("imoveis", imovelService.obterTodos());
+        return "index";
+    }
+
+    @RequestMapping("/pesquisar")
+    public String adicionarItem(Pesquisa pesquisa, Model model){    
+        model.addAttribute("imoveis", imovelService.procurar(pesquisa));
         return "index";
     }
 

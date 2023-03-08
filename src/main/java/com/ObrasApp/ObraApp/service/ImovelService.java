@@ -1,12 +1,15 @@
 package com.ObrasApp.ObraApp.service;
 
 import com.ObrasApp.ObraApp.model.Imovel;
+//import com.ObrasApp.ObraApp.model.Pesquisa;
+import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.repository.ImovelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -25,6 +28,25 @@ public class ImovelService {
 
     public Imovel obter(String id) {
         return imovelRepository.findById(id).orElse(null);
+    }
+
+    public List<Imovel> procurar(Pesquisa pesquisa) {
+        List<Imovel> listaRetorna = new ArrayList<>();
+        if(pesquisa == null){
+            return null;
+        }
+        if(obterTodos().isEmpty() || obterTodos() == null){
+            return null;
+        }
+        List<Imovel> lista = obterTodos();
+        for(Imovel imovel : lista ){
+            if(Objects.equals(imovel.getDormitorio(), pesquisa.getDormitorio())
+            && Objects.equals(imovel.getCidade(), pesquisa.getCidade())
+            && (imovel.getPreco() >= pesquisa.getPrecoMin() && imovel.getPreco() <= pesquisa.getPrecoMax())){
+                listaRetorna.add(imovel);
+            }
+        }
+        return listaRetorna;
     }
      
     public List<Imovel> obterTodos() {
