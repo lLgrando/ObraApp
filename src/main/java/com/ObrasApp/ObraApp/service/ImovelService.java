@@ -3,6 +3,7 @@ package com.ObrasApp.ObraApp.service;
 import com.ObrasApp.ObraApp.model.Imovel;
 import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.repository.ImovelRepository;
+import com.ObrasApp.ObraApp.tools.Tools;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -39,15 +40,12 @@ public class ImovelService {
         }
         List<Imovel> lista = obterTodos();
         for(Imovel imovel : lista ){
-            if(imovel.getPreco() >= pesquisa.getPrecoMin() && imovel.getPreco() <= pesquisa.getPrecoMax()){
-                if (Objects.equals(imovel.getDormitorio(), pesquisa.getDormitorio())
-                        && Objects.equals(imovel.getCidade(), pesquisa.getCidade())){
-                    listaRetorna.add(imovel);
-                }else if (Objects.equals(imovel.getDormitorio(), pesquisa.getDormitorio())) {
-                    listaRetorna.add(imovel);
-                }else if (Objects.equals(imovel.getCidade(), pesquisa.getCidade())) {
-                    listaRetorna.add(imovel);
-                }
+            if(Tools.retornaImovelCondicaoCidade(imovel, pesquisa)){listaRetorna.add(imovel);}
+            switch (Tools.tipoPesquisa(pesquisa)){
+                case 1: if(Tools.retornaImovelCondicaoAll(imovel, pesquisa))listaRetorna.add(imovel); break;
+                case 2: if(Tools.retornaImovelCondicaoCidade(imovel, pesquisa))listaRetorna.add(imovel); break;
+                case 3: if(Tools.retornaImovelCondicaoDormitorio(imovel, pesquisa))listaRetorna.add(imovel); break;
+                case 4: if(Tools.retornaImovelCondicaoPreco(imovel, pesquisa))listaRetorna.add(imovel); break;
             }
         }
         return listaRetorna;
