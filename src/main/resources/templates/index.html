@@ -33,15 +33,15 @@
 
             <form action="/pesquisar" method="POST" id="formularioDeBusca">
                 <div class="wrapper">
+                    <h4 >Preço do Imóvel</h4>
                     <div class="price-input">
                         <div class="field">
-                            <span>Min</span>
+                            <span id="precoMaxMin">Min R$</span>
                             <input type="number" name="precoMin" class="input-min" value="230000" disabled="true">
                         </div>
-                        <div class="separator">-</div>
                         <div class="field">
-                            <span>Max</span>
-                            <input type="number" name="precoMax" class="input-max" value="760000" disabled="true">
+                            <span id="precoMaxMin">Max R$</span>
+                            <input type="number" name="precoMax" class="input-max" value="760000" disabled="true" >
                         </div>
                     </div>
                     <div class="slider">
@@ -55,7 +55,7 @@
 
                 <select id="regiao" name="cidade">
                     <optgroup label="Cidade" >
-                        <option value="" data-default selected>Mostrar tudo</option>
+                        <option value="" data-default selected>Cidade</option>
                         <option value="SP">São Paulo</option>
                         <option value="RJ">Rio de Janeiro</option>
                         <option value="POA">Porto Alegre</option>
@@ -66,7 +66,7 @@
 
                 <select id="dormitorios" name="dormitorio">
                     <optgroup label="Dormitórios">
-                        <option value="0" data-default selected>Mostrar tudo</option>
+                        <option value="0" data-default selected>Dormitórios</option>
                         <option value="1">1 dormitório</option>
                         <option value="2">2 dormitório</option>
                         <option value="3">3 dormitório</option>

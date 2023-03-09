@@ -4,6 +4,7 @@ import com.ObrasApp.ObraApp.model.Imovel;
 import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.repository.ImovelRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -36,13 +37,13 @@ public class ImovelService {
 
     public List<Imovel> procurar(Pesquisa pesquisa) {
         if(pesquisa.getCidade() == "" && pesquisa.getDormitorio() == 0){
-            return imovelRepository.buscarPorPreco(pesquisa.getPrecoMin(), pesquisa.getPrecoMax());
+            return imovelRepository.findByPrecoBetween(pesquisa.getPrecoMin(), pesquisa.getPrecoMax());
         }else if(pesquisa.getDormitorio() == 0){
-            return imovelRepository.buscarImoveisPorPrecoECidade(pesquisa.getPrecoMin(), pesquisa.getPrecoMax(), pesquisa.getCidade());
+            return imovelRepository.findByPrecoBetweenAndCidade(pesquisa.getPrecoMin(), pesquisa.getPrecoMax(), pesquisa.getCidade());
         }else if(pesquisa.getCidade() == "") {
-            return imovelRepository.buscarImoveisPorPrecoEDormitorios(pesquisa.getPrecoMin(), pesquisa.getPrecoMax(), pesquisa.getDormitorio());
+            return imovelRepository.findByPrecoBetweenAndDormitorio(pesquisa.getPrecoMin(), pesquisa.getPrecoMax(), pesquisa.getDormitorio());
         }else {
-            return imovelRepository.buscarImoveisPorPrecoECidadeEDormitorios(pesquisa.getPrecoMin(), pesquisa.getPrecoMax(), pesquisa.getCidade(), pesquisa.getDormitorio());
+            return imovelRepository.findByPrecoBetweenAndCidadeAndDormitorio(pesquisa.getPrecoMin(), pesquisa.getPrecoMax(), pesquisa.getCidade(), pesquisa.getDormitorio());
         }
     }
      
