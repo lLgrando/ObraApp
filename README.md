@@ -20,7 +20,9 @@ Na tela de entrada da aplicação, há um botão na parte superior direita, conf
  <br>
 :heavy_check_mark: Editar as propriedades dos imóveis;
  <br>
-:heavy_check_mark: Excluir os imóveis cadastrados.
+:heavy_check_mark: Excluir os imóveis cadastrados;
+ <br>
+:heavy_check_mark: Tela de login para o adm da página. Apenas o Adm poderá adicionar ou modificar os imóveis.
 
 # Tecnologias
 Java  <br>
@@ -29,3 +31,12 @@ Maven  <br>
 Banco de dados H2  <br>
 Thymeleaf  <br>
 HTML, CSS e JS
+
+# Próximos passos
+- Migrar o banco de dados para Postgres; <br>
+- Criar página de cadastro de usuários com persistência em BD; <br>
+- Adicionar tela específica com informações de cada imóvel cadastrado; <br>
+- Aumentar os recursos da tela de gestão do Adm; <br>
+- Adicionar imagem específica para cada prédio. 
+
+
