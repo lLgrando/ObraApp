@@ -31,7 +31,7 @@
         <h2>Encontre seu imóvel</h2>
         <div id="divBusca">
 
-            <form action="/pesquisar" method="POST" id="formularioDeBusca">
+            <form th:action="@{/pesquisar}" method="post" id="formularioDeBusca">
                 <div class="wrapper">
                     <h4 >Preço do Imóvel</h4>
                     <div class="price-input">
@@ -81,7 +81,7 @@
     </div>
 
     <div th:case="*" id="divListaDeImoveis" th:switch="${#lists.size(imoveis)}" class=".content">
-        <ul th:each="imovel : ${imoveis}">
+        <ul th:each="imovel:${imoveis}">
             <li>
                 <img th:attr="src=@{/apsImagem/apt1.jpg},title=#{logo},alt=#{logo}">
                 <span th:text="${imovel.nomeImovel}"></span>

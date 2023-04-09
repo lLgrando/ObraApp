@@ -21,12 +21,12 @@
     <div id="formEnvio">
         <h1>Editar Imóvel Cadastrado</h1>
 
-        <form action="/formulario/editar/modificar" method="POST">
-            <input name="id" th:value="${imovel.id}" hidden>
+        <form th:action="@{/formulario/editar/modifica}" method="post" th:object="${imovel}">
+            <input name="id" th:field="${imovel.id}" hidden>
             <div>
                 <div class="divNome">
                     <label for="nomeImovel">Imóvel</label>
-                    <input th:value="${imovel.nomeImovel}" type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel..." required>
+                    <input th:field="${imovel.nomeImovel}" type="text" value="" name="nomeImovel" class="inputNome" placeholder="Nome do imóvel..." required>
                 </div>
                 <div class="divLocalicazao">
                     <label for="local">Localização</label>
@@ -44,16 +44,16 @@
             <div id="organiza">
                 <div class="divArea">
                     <label for="area">Área (m²)</label>
-                    <input th:value="${imovel.area}" type="number" value="" name="area" class="inputArea" placeholder="80" min="20" max="200" required>
+                    <input th:field="${imovel.area}" type="number" value="" name="area" class="inputArea" placeholder="80" min="20" max="200" required>
                 </div>
                 <div class="divPreco">
                     <label for="preco">Preço</label>
-                    <input th:value="${imovel.preco}" type="number" value="" name="preco" class="inputPreco" placeholder="300.000,00" min="0"
+                    <input th:field="${imovel.preco}" type="number" value="" name="preco" class="inputPreco" placeholder="300.000,00" min="0"
                         max="1000000" required>
                 </div>
                 <div class="divDormitorio">
                     <label for="dormitorio">Dormitórios</label>
-                    <input th:value="${imovel.dormitorio}" type="number" value="" id="cadastrar" name="dormitorio" class="inputDormitorio"
+                    <input th:field="${imovel.dormitorio}" type="number" value="" id="cadastrar" name="dormitorio" class="inputDormitorio"
                         placeholder="2" min="1" max="3" onclick="fun()" required>
                 </div>
             </div>
@@ -64,6 +64,7 @@
 
         </form>
 
+    
     </div>
 </body>
 </html>

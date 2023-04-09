@@ -16,7 +16,7 @@ public class EditarController {
     @Autowired
     private final ImovelService imovelService;
 
-    @PostMapping("/formulario/editar/modificar")
+    @PostMapping("/formulario/editar/modifica")
     public String adicionarItem(Imovel imovel){
         imovelService.atualizar(imovel);
         return "redirect:/formulario";

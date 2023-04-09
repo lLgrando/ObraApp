@@ -13,17 +13,4 @@ public interface ImovelRepository extends JpaRepository<Imovel, String> {
     List<Imovel> findByPrecoBetweenAndCidade(Double precoMin, Double precoMax, String cidade);
     List<Imovel> findByPrecoBetween(Double precoMin, Double precoMax);
 
-    /*
-     * @Query("SELECT i FROM Imovel i WHERE i.preco BETWEEN :precoMin AND :precoMax "
-     * + "AND i.cidade = :cidade AND i.dormitorio = :dormitorio")
-     * List<Imovel> buscarImoveisPorPrecoECidadeEDormitorios(
-     * 
-     * @Param("precoMin") Double precoMin,
-     * 
-     * @Param("precoMax") Double precoMax,
-     * 
-     * @Param("cidade") String cidade,
-     * 
-     * @Param("dormitorio") Integer dormitorio);
-     */
 }

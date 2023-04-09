@@ -1,0 +1,33 @@
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    background: black;
+}
+
+header #logo {
+    width: 60px;
+    border-radius: 8px;
+}
+
+/* FORMULÁRIO */
+
+#center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh-40px);
+    padding-top: 40px;
+}
+
+form {
+    width: 30%;
+    padding: 30px;
+    border: 1px solid gray;
+    border-radius: 24px;
+}
