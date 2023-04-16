@@ -1,11 +1,12 @@
 package com.ObrasApp.ObraApp.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ObrasApp.ObraApp.dto.Simulador;
 import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.service.ImovelService;
 
@@ -15,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HomeController {
     
-    @Autowired
     private final ImovelService imovelService;
     
     @GetMapping("/")
@@ -28,6 +28,17 @@ public class HomeController {
     public String adicionarItem(Pesquisa pesquisa, Model model){    
         model.addAttribute("imoveis", imovelService.procurar(pesquisa));
         return "home";
+    }
+
+    @GetMapping("/simulador")
+    public String simulador(){
+        return "simulador";
+    }
+
+    @PostMapping("/simulador")
+    public String simulador(Simulador simulador, Model model){
+        model.addAttribute("simulacao", imovelService.simularValorDaParcela(simulador));
+        return "simulador";
     }
 
     @GetMapping("login")

@@ -1,5 +1,6 @@
 package com.ObrasApp.ObraApp.service;
 
+import com.ObrasApp.ObraApp.dto.Simulador;
 import com.ObrasApp.ObraApp.model.Imovel;
 import com.ObrasApp.ObraApp.model.Pesquisa;
 import com.ObrasApp.ObraApp.repository.ImovelRepository;
@@ -56,4 +57,37 @@ public class ImovelService {
         imovelRepository.delete(imovel);
         return imovel;
     }
+
+    public Simulador simularValorDaParcela(Simulador simulador){
+        if(simulador.getValorDaEntrada() == null)
+            simulador.setValorDaEntrada(Float.parseFloat("0"));
+        
+        if(simulador.getValorDoFgts() == null)
+            simulador.setValorDoFgts((Float.parseFloat("0")));
+        
+        Float valorLiquido = simulador.getValorDoImovel() - simulador.getValorDaEntrada() - simulador.getValorDoFgts();
+
+        return simularParcelas(simulador, valorLiquido);
+    }
+
+    private Simulador simularParcelas(Simulador simulador, Float valorLiquido){
+        float jurosMenosDeDezAnos = (float) 1.11;
+        float jurosEntreDezEVinteAnos = (float) 1.15;
+        float jurosMaisDeVinteAnos = (float) 1.19;
+
+        if(simulador.getPrestacoes() <= 120){
+            simulador.setValorDaParcela((valorLiquido * jurosMenosDeDezAnos) / simulador.getPrestacoes());
+            simulador.setValorFinalDoImovel(simulador.getValorDoImovel() * jurosMenosDeDezAnos);
+            return simulador;
+        } else if(simulador.getPrestacoes() > 120 && simulador.getPrestacoes() <= 240){
+            simulador.setValorDaParcela((valorLiquido * jurosEntreDezEVinteAnos) / simulador.getPrestacoes());
+            simulador.setValorFinalDoImovel(simulador.getValorDoImovel() * jurosEntreDezEVinteAnos);
+            return simulador;
+        } else {
+            simulador.setValorDaParcela((valorLiquido * jurosMaisDeVinteAnos) / simulador.getPrestacoes());
+            simulador.setValorFinalDoImovel(simulador.getValorDoImovel() * jurosMaisDeVinteAnos);
+            return simulador;
+        }
+    }
+    
 }

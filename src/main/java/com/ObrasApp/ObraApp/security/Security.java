@@ -19,9 +19,15 @@ public class Security {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/**", "home", "/pesquisar/*", "/*.css", "/*.js", "/apsImagem/**").permitAll()
-                        .anyRequest().authenticated().and())
+                .authorizeHttpRequests((requests) -> {
+                    try {
+                        requests
+                                .requestMatchers("/", "home", "simulador", "pesquisar", "/*.css", "/*.js", "/apsImagem/**").permitAll()
+                                .anyRequest().authenticated().and().csrf().disable();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                })
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll().and())
