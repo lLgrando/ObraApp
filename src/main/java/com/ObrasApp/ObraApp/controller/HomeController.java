@@ -45,4 +45,9 @@ public class HomeController {
     public String login(){
         return "login";
     }
+
+    @GetMapping("contato")
+    public String contato(){
+        return "contato";
+    }
 }

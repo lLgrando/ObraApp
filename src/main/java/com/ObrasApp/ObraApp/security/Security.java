@@ -22,7 +22,7 @@ public class Security {
                 .authorizeHttpRequests((requests) -> {
                     try {
                         requests
-                                .requestMatchers("/", "home", "simulador", "pesquisar", "/*.css", "/*.js", "/apsImagem/**").permitAll()
+                                .requestMatchers("/", "home", "simulador", "contato", "pesquisar", "/*.css", "/*.js", "/apsImagem/**").permitAll()
                                 .anyRequest().authenticated().and().csrf().disable();
                     } catch (Exception e) {
                         e.printStackTrace();
